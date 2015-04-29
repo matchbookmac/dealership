@@ -1,0 +1,9 @@
+<ul>
+  <% if Vehicle.length() == 0 %>
+    There are no vehicles on the lot at this time : (
+  <% else %>
+    <% @vehicles.each() do |vehicle| %>
+      <li><%= vehicle.make() %></li>
+    <% end %>
+  <% end %>
+</ul>

@@ -8,6 +8,10 @@ class Vehicle
     @id = @@vehicles.length().+(1)
   end
 
+  define_singleton_method(:length) do
+    @@vehicles.length()
+  end
+
   define_method(:make) do
     @make
   end
@@ -46,10 +50,10 @@ class Vehicle
     american_cars.include?(@make).&(self.age.<=(15))
   end
 
-  define_singleton_method(:find) do |id|
+  define_singleton_method(:find) do |identification|
     found_vehicle = nil
     @@vehicles.each() do |vehicle|
-      if vehicle.id() == id.to_i()
+      if vehicle.id() == identification.to_i()
         found_vehicle = vehicle
       end
     end
