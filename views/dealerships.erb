@@ -5,7 +5,9 @@
     <p>Sorry, no one has joined our network (big surprise).</p>
   <% else %>
     <% @dealerships.each() do |dealership| %>
-      <li><a href='/dealerships/<%= dealership.id() %>'><%= @dealership.name() %></a></li>
+      <li><a href="/dealerships/<%= dealership.id() %>"><%= dealership.name() %></a></li>
     <% end %>
   <% end %>
 </ul>
+
+<a href="/dealerships/new">Add a dealership</a>

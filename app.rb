@@ -9,7 +9,7 @@ get ('/') do
 end
 
 
-get ('dealerships') do
+get ('/dealerships') do
   @dealerships = Dealership.all()
   erb(:dealerships)
 end
