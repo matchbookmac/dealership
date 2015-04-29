@@ -1,0 +1,13 @@
+<h3>Here is the car you asked for: <%= @vehicle.make() %>, <%= @vehicle.model() %>, <%= @vehicle.year() %></h3>
+
+<form action="/">
+  <div class="form-group">
+    <button type="submit" class="btn-success">Return to home page</button>
+  </div>
+</form>
+
+<form action="/vehicles">
+  <div class="form-group">
+    <button type="submit" class="btn-success">See available cars</button>
+  </div>
+</form>

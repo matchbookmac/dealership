@@ -1,0 +1,17 @@
+<h2>Thanks for submitting your car!</h2>
+
+<h2>Here is the car you are selling:</h2>
+<h4><%= @new_car.make() %>, <%= @new_car.model() %>, <%= @new_car.year() %></h4>
+<h4>The identification number for your car is: <%= @new_car.id() %></h4>
+
+<form action="/">
+  <div class="form-group">
+    <button type="submit" class="btn-success">Return to home page</button>
+  </div>
+</form>
+
+<form action="/vehicles">
+  <div class="form-group">
+    <button type="submit" class="btn-success">See available cars</button>
+  </div>
+</form>

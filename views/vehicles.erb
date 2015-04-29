@@ -3,7 +3,7 @@
     There are no vehicles on the lot at this time : (
   <% else %>
     <% @vehicles.each() do |vehicle| %>
-      <%= vehicle.make() %>, <%= vehicle.model() %>, <%= vehicle.year() %> 
+      <li><a href="/vehicles/<%= vehicle.id() %>"><%= vehicle.make() %>, <%= vehicle.model() %>, <%= vehicle.year() %></a></li>
     <% end %>
   <% end %>
 </ul>

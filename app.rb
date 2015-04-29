@@ -8,8 +8,6 @@ get ('/') do
 end
 
 get ('/vehicles') do
-  # new_car = Vehicle.new("1", "3", "b")
-  # new_car.save()
   @vehicles = Vehicle.all()
   erb(:vehicles)
 end
@@ -19,9 +17,15 @@ get ('/vehicles/new') do
 end
 
 post ('/vehicles') do
+  @make = params.fetch('make')
+  @model = params.fetch('model')
+  @year = params.fetch('year')
+  @new_car = Vehicle.new(@make, @model, @year)
+  @new_car.save()
   erb(:success)
 end
 
 get ('/vehicles/:id') do
+  @vehicle = Vehicle.find(params.fetch('id'))
   erb(:vehicle)
 end
