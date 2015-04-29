@@ -15,6 +15,10 @@ class Dealership
     @@dealerships.push(self)
   end
 
+  define_method(:add_car) do |car|
+    @cars.push(car)
+  end
+
   define_singleton_method(:all) do
     @@dealerships
   end
