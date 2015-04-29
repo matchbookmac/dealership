@@ -7,6 +7,28 @@ get ('/') do
   erb(:index)
 end
 
+
+get ('dealerships') do
+  @dealerships = Dealership.all()
+  erb(:dealerships)
+end
+
+get ('/dealerships/new') do
+  erb(:dealership_form)
+end
+
+post ('/dealerships') do
+  @dealership =params.fetch('dealership')
+  @new_dealership = Dealership.new(@dealership)
+  @new_dealership.save()
+  erb(:dealership_success)
+end
+
+get ('/dealerships/:id') do
+  @dealership = Dealership.find(params.fetch('id'))
+  erb(:dealership)
+end
+
 get ('/vehicles') do
   @vehicles = Vehicle.all()
   erb(:vehicles)
