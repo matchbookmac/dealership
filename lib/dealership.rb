@@ -3,6 +3,7 @@ class Dealership
 
   define_method(:initialize) do |name|
     @name = name
+    @cars = []
     @id = @@dealerships.length().+(1)
   end
 
@@ -24,6 +25,10 @@ class Dealership
 
   define_method(:id) do
     @id
+  end
+
+  define_method(:cars) do
+    @cars
   end
 
   define_singleton_method(:find) do |dealer_id|

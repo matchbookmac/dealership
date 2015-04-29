@@ -62,4 +62,12 @@ describe('Dealership') do
       expect(Dealership.find(2)).to(eq(test_dealership_2))
     end
   end
+
+  describe('#cars') do
+    it('returns array of cars for dealership') do
+      test_dealership = Dealership.new("buddys")
+      test_dealership.save()
+      expect(test_dealership.cars()).to(eq([]))
+    end
+  end
 end
