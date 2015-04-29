@@ -26,17 +26,18 @@ post ('/dealerships') do
 end
 
 get ('/dealerships/:id') do
-  @dealership = Dealership.find(params.fetch('id'))
+  @dealership = Dealership.find(params.fetch('id').to_i())
   erb(:dealership)
+end
+
+get ('/dealerships/:id/vehicles/new') do
+  @dealership = Dealership.find(params.fetch('id').to_i())
+  erb(:dealership_vehicles_form)
 end
 
 get ('/vehicles') do
   @vehicles = Vehicle.all()
   erb(:vehicles)
-end
-
-get ('/vehicles/new') do
-  erb(:vehicle_form)
 end
 
 post ('/vehicles') do
@@ -45,6 +46,8 @@ post ('/vehicles') do
   @year = params.fetch('year')
   @new_car = Vehicle.new(@make, @model, @year)
   @new_car.save()
+  @dealership = Dealership.find(params.fetch('dealership_id'))
+  @dealership.add_car(@new_car)
   erb(:success)
 end
 

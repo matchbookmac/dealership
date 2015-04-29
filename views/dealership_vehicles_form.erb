@@ -1,6 +1,7 @@
-<h2>Please tell us what kind of car you have.</h2>
+<h2>Please tell us what kind of car you have for <%= @dealership.name() %></h2>
 
 <form action="/vehicles" method="post">
+  <input id="dealership_id" name="dealership_id" type="hidden" value="<%= @dealership.id() %>">
   <div class="form-group">
     <label for="make">What is the make of your car or truck?</label>
     <input id="make" name="make" class="form-control" type="text">
