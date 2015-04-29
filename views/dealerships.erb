@@ -1,0 +1,11 @@
+<h1>These are the kinda trustworthy dealerships in our network!</h1>
+
+<ul>
+  <% if @dealerships.length == 0 %>
+    <p>Sorry, no one has joined our network (big surprise).</p>
+  <% else %>
+    <% @dealerships.each() do |dealership| %>
+      <li><a href='/dealerships/<%= dealership.id() %>'><%= @dealership.name() %></a></li>
+    <% end %>
+  <% end %>
+</ul>
