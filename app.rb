@@ -8,6 +8,8 @@ get ('/') do
 end
 
 get ('/vehicles') do
+  # new_car = Vehicle.new("1", "3", "b")
+  # new_car.save()
   @vehicles = Vehicle.all()
   erb(:vehicles)
 end
