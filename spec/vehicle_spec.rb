@@ -65,11 +65,20 @@ describe("#save") do
       expect(test_vehicle.worth_buying?()).to(eq(false))
     end
   end
-  describe("id") do
+  describe("#id") do
     it("returns the vehicle\'s id") do
       test_vehicle = Vehicle.new("Toyota", "Prius", 2000)
       test_vehicle.save()
       expect(test_vehicle.id()).to(eq(1))
+    end
+  end
+  describe("#find") do
+    it('returns the vehicle corresponding to the id provided.') do
+      test_vehicle = Vehicle.new("Toyota", "Prius", 2000)
+      test_vehicle.save()
+      test_vehicle_2 = Vehicle.new("Ford", "F-150", "1988")
+      test_vehicle_2.save()
+      expect(Vehicle.find(2)).to(eq(test_vehicle_2))
     end
   end
 end

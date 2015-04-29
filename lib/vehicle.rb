@@ -45,4 +45,14 @@ class Vehicle
     american_cars = ["Chrysler", "Ford", "GM"]
     american_cars.include?(@make).&(self.age.<=(15))
   end
+
+  define_singleton_method(:find) do |id|
+    found_vehicle = nil
+    @@vehicles.each() do |vehicle|
+      if vehicle.id() == id.to_i()
+        found_vehicle = vehicle
+      end
+    end
+    found_vehicle
+  end
 end
