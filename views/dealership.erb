@@ -1,17 +1,28 @@
-<div class="col-md-4">
-  <h2>Would you like to look at our used cars?</h2>
+<h1>Welcome to <%= @dealership.name() %></h1>
 
-  <form action="/vehicles">
+<h3>These are the terrible cars we have for sale:</h3>
+
+<ul>
+  <% if @dealership.cars().length > 0 %>
+    <% @dealership.cars().each do |car| %>
+      <li><a href="/vehicles/<%= car.id() %>"><%= car.make() %>, <%= car.model() %>, <%= car.year() %></a></li>
+    <% end %>
+  <% end %>
+</ul>
+
+<div class="col-md-4">
+  <h2>Would you like us to sell your cruddy used car?</h2>
+
+  <form action="/dealerships/<%= @dealership.id() %>/vehicles/new">
     <div class="form-group">
       <button type="submit" class="btn-success">Submit</button>
     </div>
   </form>
 </div>
-
 <div class="col-md-4">
-  <h2>Or would you like us to sell your cruddy used car?</h2>
+  <h2>Would you like to go Home?</h2>
 
-  <form action="/dealerships/<%= @dealership.id() %>/vehicles/new">
+  <form action="/">
     <div class="form-group">
       <button type="submit" class="btn-success">Submit</button>
     </div>
